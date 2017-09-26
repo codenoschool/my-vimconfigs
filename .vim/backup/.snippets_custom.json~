@@ -1,0 +1,21 @@
+{ 
+	"html": {
+		"snippets": {
+			"html:5": "<!DOCTYPE html>\n<html lang=\"es\">\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t\t<title>${cursor}</title>\n\t</head>\n\t<body>\n\t</body>\n</html>",
+			"j2:base": "<!DOCTYPE html>\n<html lang=\"es\">\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t\t<title>{% block title %}{% endblock %}</title>\n\t</head>\n\t<body>\n\t\t{% block content %}{% endblock %}\n\t</body>\n</html>"
+		}
+	},
+	"javascript": {
+		"snippets": {
+			"express": "var express = require('express');\nvar app = express();\n\napp.get('/', function(req, res){\n\tres.send('${cursor}');\n});\n\napp.listen(3000, function(){\n\tconsole.log('The server is running on http://127.0.0.1:3000/');\n});",
+			"express:pug": "var express = require('express');\nvar app = express();\nvar path = require('path');\n\napp.set('views', path.join(__dirname, 'views'));\napp.set('view engine', 'pug');\n\napp.get('/', function(req, res){\n\tres.render('${cursor}');\n});\n\napp.listen(3000, function(){\n\tconsole.log('The server is running on http://127.0.0.1:3000/');\n});",
+			"express:temp": "var express = require('express');\nvar app = express();\nvar path = require('path');\n\napp.set('views', path.join(__dirname, 'views'));\napp.set('view engine', 'pug');\n\napp.use(express.static(path.join(__dirname, 'public')));\n\napp.get('/', function(req, res){\n\tres.render('${cursor}');\n});\n\napp.listen(3000, function(){\n\tconsole.log('The server is running on http://127.0.0.1:3000/');\n});"
+		}
+	},
+	"pug": {
+		"snippets": {
+			"pug": "doctype html\nhtml\n\thead\n\t\tmeta(charset=\"utf-8\")\n\tbody\n\t\t${cursor}",
+			"pug:base": "doctype html\nhtml\n\thead\n\t\ttitle\n\t\t\tblock title\n\t\tmeta(charset=\"utf-8\")\n\tbody\n\t\tblock body"
+		}
+	}
+}
